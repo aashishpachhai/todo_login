@@ -23,13 +23,15 @@
         padding: 0.5rem;
         display: flex;
         justify-content: space-between;
+        align-items: center;
       "
     >
       <p style="font-size: 20px">Todo App</p>
+      <p>Welcome, {{user.first_name}} {{user.last_name}}</p>
       <button
         style="
           padding-inline: 2rem;
-          /* padding-block: 0.2rem; */
+          padding-block: 1rem;
           background-color: red;
           border: none;
           cursor: pointer;

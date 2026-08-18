@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
+from .models import Todo
 # Create your views here.
 def login_user(request):
     if request.method=='POST':
@@ -30,7 +31,14 @@ def login_user(request):
 
 @login_required(login_url='/login')
 def home(request):
-    context={'title':'Home'}
+    if request.method=='POST':
+        title=request.POST.get('title')
+        description=request.POST.get('description')
+        Todo.objects.create(title=title,description=description,user=request.user)
+        return redirect('/')
+
+    userTodo=Todo.objects.filter(user=request.user)
+    context={'title':'Home','todos':userTodo}
     return render(request,'todo.html',context)
 
 def register(request):
@@ -60,3 +68,7 @@ def register(request):
 def logout_user(request):
     logout(request)
     return redirect('/login')
+
+def delete_todo(request,id):
+    Todo.objects.get(id=id).delete()
+    return redirect('/')

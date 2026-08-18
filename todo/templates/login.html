@@ -76,5 +76,18 @@
     <p>Dont have account ? <a href="/register">Signup</a></p>
   </form>
 </div>
+{% if messages %} {% for message in messages %}
+<p
+  style="
+    background-color: burlywood;
+    color: white;
+    padding: 10px;
+    position: absolute;
+    bottom: 1px;
+    right: 2px;
+  "
+>
+  {{ message }}
+</p>
 
-{% endblock %}
+{% endfor %} {% endif %} {% endblock %}
