@@ -72,3 +72,17 @@ def logout_user(request):
 def delete_todo(request,id):
     Todo.objects.get(id=id).delete()
     return redirect('/')
+
+def edit_todo(request,id):
+    todo=Todo.objects.get(id=id)
+    context={'title':'Edit Todo','todo':todo}
+
+    if request.method=="POST":
+        title=request.POST.get("title")
+        description=request.POST.get("description")
+        todo.title=title
+        todo.description=description
+        todo.save()
+        return redirect('/')
+
+    return render(request,'edit_todo.html',context)

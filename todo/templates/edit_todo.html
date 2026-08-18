@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block start %}
+
+<div style="display: flex; align-items: center; justify-content: center; margin: 1rem;">
+ 
+    <form action="" method="POST" style="background-color: black; padding: 2rem; width: 40%; border-radius: 16px;">
+        {% csrf_token %}
+        <h2>Edit Todo</h2>
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;margin: 0.5rem;">
+        <label for="">Title</label>
+        <input type="text" name="title"  value="{{todo.title}}"
+         style="padding: 0.8rem; outline: none; border: none; color: black" />
+      </div>
+      <div style="display: flex; flex-direction: column;gap: 0.5rem; margin: 0.5rem;">
+         <label for="">Description</label>
+          <textarea name="description"   style="padding: 0.8rem; outline: none; border: none; color: black"> {{todo.description}}</textarea>
+        </label>
+      </div>
+      <button  style="
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 0.2rem;
+        width: 100%;
+        cursor: pointer;
+        margin-top: 1rem;
+      " >Edit </button>
+    </form>
+
+</div>{% endblock %}

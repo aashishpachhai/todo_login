@@ -23,5 +23,6 @@ urlpatterns = [
     path('',home,name='home'),
     path('register',register,name='register'),
     path('logout',logout_user,name='logout'),
-    path('delete/<id>/',delete_todo,name='delete')
+    path('delete/<id>/',delete_todo,name='delete'),
+    path('edit/<id>/',edit_todo,name='edit')
 ]
