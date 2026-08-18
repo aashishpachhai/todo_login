@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Google Sans", sans-serif;
+        font-optical-sizing: auto;
+        color: white;
+      }
+    </style>
+  </head>
+  <body style="padding: 0; margin: 0">
+    {% if user.is_authenticated %}
+    <nav
+      style="
+        background-color: green;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+      "
+    >
+      <p style="font-size: 20px">Todo App</p>
+      <button
+        style="
+          padding-inline: 2rem;
+          /* padding-block: 0.2rem; */
+          background-color: red;
+          border: none;
+          cursor: pointer;
+        "
+      >
+        <a style="font-size: 18px; text-decoration: none" href="/logout"
+          >Logout</a
+        >
+      </button>
+    </nav>
+    {% endif %} {% block start %} {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,80 @@
+{% extends 'base.html' %} {% block start %}
+<div
+  style="
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+  "
+>
+  <form
+    method="POST"
+    style="
+      background-color: black;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-inline: 4rem;
+      padding-block: 4rem;
+      height: 20rem;
+      width: 20rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1rem;
+    "
+  >
+    {% csrf_token %}
+    <h2 style="color: white">Login</h2>
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        gap: 0.4rem;
+      "
+    >
+      <label for="">Username</label>
+      <input
+        type="text"
+        name="username"
+        style="padding: 0.8rem; border: none; outline: none; color: black"
+      />
+    </div>
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        gap: 0.4rem;
+      "
+    >
+      <label for="">Password</label>
+      <input
+        type="password"
+        name="password"
+        style="padding: 0.8rem; outline: none; border: none; color: black"
+      />
+    </div>
+    <button
+      style="
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 0.2rem;
+        width: 100%;
+        cursor: pointer;
+        margin-top: 1rem;
+      "
+    >
+      Login
+    </button>
+    <p>Dont have account ? <a href="/register">Signup</a></p>
+  </form>
+</div>
+
+{% endblock %}
